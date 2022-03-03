@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
-import PersonalInfo from "./PersonalInfo";
-import Home from "./Home";
+import PersonalInfo from "./pages/personalInfo/PersonalInfo";
+import Home from "./pages/home/Home";
 function App() {
   return (
     <div className="app">
@@ -9,7 +9,6 @@ function App() {
         <Route exact path="/personalInfo" element={<PersonalInfo />} />
         <Route path="/" element={<Home />} />
       </Routes>
-      
     </div>
   );
 }
