@@ -1,0 +1,57 @@
+.pagination {
+    position: absolute;
+    width: 231px;
+    height: 19px;
+    left: 341px;
+    top: 904px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .previous {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #fe3b1f;
+    transform: rotate(270deg);
+  
+    text-align: center;
+    color: #fe3b1f;
+  
+    border-radius: 18px;
+  }
+  
+  .next {
+    width: 18px;
+    height: 18px;
+    width: 18px;
+    height: 18px;
+    border: 3px solid #fe3b1f;
+    transform: rotate(-270deg);
+  
+    text-align: center;
+    color: #fe3b1f;
+    border-radius: 18px;
+  }
+  
+  .balls {
+    display: flex;
+    align-items: center;
+  }
+  .ball {
+    width: 19px;
+    height: 19px;
+    background: #fe3b1f;
+    opacity: 0.1;
+  
+    border: 1px solid black;
+    border-radius: 19px;
+    margin: 2px;
+  }
+  
+  
+  .active {
+    background-color: #fe3b1f;
+    opacity: 1;
+    border: none;
+  }

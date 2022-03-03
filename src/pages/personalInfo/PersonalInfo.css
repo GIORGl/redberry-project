@@ -54,43 +54,6 @@
   box-sizing: border-box;
 }
 
-.pagination {
-  position: sticky;
-  width: 231px;
-  height: 19px;
-  left: 341px;
-  top: 904px;
-
-  display: flex;
-  align-items: center;
-  border: 1px solid green;
-}
-
-.previous {
-  width: 18px;
-  height: 18px;
-
-  /* Redberry Red */
-
-  border: 3px solid #fe3b1f;
-  transform: rotate(-180deg);
-}
-
-.ball {
-  width: 19px;
-  height: 19px;
-
-  /* Redberry Red */
-
-  background-color: #fe3b1f;
-  opacity: 0.1;
-}
-
-.balls {
-  display: flex;
-  margin-left: 40px;
-}
-
 .personal_info_right {
   width: 50%;
   height: 1080px;
@@ -138,3 +101,4 @@
 
   color: #ffffff;
 }
+

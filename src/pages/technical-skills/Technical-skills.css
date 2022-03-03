@@ -1,0 +1,107 @@
+.techinicalskills {
+  height: 1080px;
+  width: 1920px;
+  display: flex;
+}
+
+.technicalskills_left {
+  height: 1080px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.technicalskills_right {
+  height: 1080px;
+  width: 50%;
+  background-color: black;
+}
+
+.skills_h1 {
+  position: absolute;
+  top: 72px;
+
+  font-family: Rowdies;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 79px;
+
+  /* Redberry Red */
+
+  color: #fe3b1f;
+}
+
+.skills {
+  position: absolute;
+  width: 447px;
+  height: 54px;
+  left: 255px;
+  top: 366px;
+
+  background: #ffffff;
+  /* Primary Stroke */
+
+  border: 1px solid #525557;
+  box-sizing: border-box;
+}
+
+.skills_time {
+  position: absolute;
+  width: 447px;
+  height: 54px;
+  left: 255px;
+  top: 451px;
+
+  background: #ffffff;
+  /* Primary Stroke */
+
+  border: 1px solid #525557;
+  box-sizing: border-box;
+
+  /* Primary Stroke */
+
+  
+}
+.display {
+  position: absolute;
+  top: 600px;
+  height: 300px;
+  width: 447px;
+}
+
+.item {
+  /* position: absolute; */
+  width: 447px;
+  height: 48px;
+
+  background: #ffffff;
+  /* Primary Stroke */
+
+  border: 1px solid #525557;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.delete {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #eb3535;
+  border-radius: 20px;
+}
+
+.left_form {
+  display: flex;
+  border: 1px solid black;
+  height: fit-content;
+  width: fit-content;
+}
+
+.delete span {
+    color: #eb3535;
+}

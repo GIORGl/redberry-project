@@ -1,4 +1,5 @@
 import React from "react";
+import Pagination from "../../components/Pagination";
 import "./PersonalInfo.css";
 
 function PersonalInfo() {
@@ -20,6 +21,8 @@ function PersonalInfo() {
             type="text"
           />
         </div>
+
+       <Pagination />
       </div>
       <div className="personal_info_right">
         <h1 className="redberry_origins">Redberry Origins</h1>
