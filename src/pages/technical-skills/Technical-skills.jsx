@@ -6,7 +6,7 @@ function Technicalskills() {
   const [selectValue, setSelectValue] = useState(null);
   const [skills, setSkills] = useState([]);
   const [inputValue, setInputValue] = useState("");
- const [current,setCurrent] = useState(null)
+  const [current, setCurrent] = useState(null);
   const [skillArr, setSkillArr] = useState([]);
   useEffect(() => {
     const getSkills = async () => {
@@ -30,7 +30,6 @@ function Technicalskills() {
   };
 
   const handleClick = (obj) => {
-
     console.log("clicked");
     console.log(obj);
 
@@ -69,11 +68,15 @@ function Technicalskills() {
         </form>
 
         <div className="display">
-          {skillArr.map(el =>  (
-            <div className="item">   
+          {skillArr.map((el) => (
+            <div className="item">
               <p>{el.skill}</p>
               <p>Years of Experience:{el.exp}</p>
-              <button type="button" onClick={() => handleClick(el)} className="delete">
+              <button
+                type="button"
+                onClick={() => handleClick(el)}
+                className="delete"
+              >
                 <span>-</span>
               </button>
             </div>
@@ -83,7 +86,18 @@ function Technicalskills() {
         <Pagination />
       </div>
 
-      <div className="technicalskills_right"></div>
+      <div className="technicalskills_right">
+        <h1 className="skills_right_h1">A bit about our battles</h1>
+
+        <p className="skills_right_p">
+          As we said, Redberry has been on the field for quite some time now,
+          and we have touched and embraced a variety of programming languages,
+          technologies, philosophies, and frameworks. We are battle-tested in
+          PHP Laravel Stack with Vue.js, refined in React, and allies with
+          Serverside technologies like Docker and Kubernetes, and now we have
+          set foot in the web3 industry.
+        </p>
+      </div>
     </div>
   );
 }

@@ -12,12 +12,6 @@
   align-items: center;
 }
 
-.technicalskills_right {
-  height: 1080px;
-  width: 50%;
-  background-color: black;
-}
-
 .skills_h1 {
   position: absolute;
   top: 72px;
@@ -61,8 +55,6 @@
   box-sizing: border-box;
 
   /* Primary Stroke */
-
-  
 }
 .display {
   position: absolute;
@@ -103,5 +95,54 @@
 }
 
 .delete span {
-    color: #eb3535;
+  color: #eb3535;
 }
+
+.technicalskills_right {
+  height: 1080px;
+  width: 50%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills_right_h1 {
+  position: sticky;
+
+  left: 1089px;
+  top: 72px;
+
+  font-family: Rowdies;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 79px;
+
+  /* Redberry Red */
+
+  color: #fe3b1f;
+}
+
+.skills_right_p {
+  position: absolute;
+  width: 705px;
+  height: 606px;
+  left: 1089px;
+  top: 240px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 200%;
+  /* or 48px */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+}
+
+
