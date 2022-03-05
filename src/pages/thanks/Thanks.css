@@ -1,0 +1,27 @@
+.thanks {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+
+  /* Primary BG */
+
+  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thanks h1 {
+  font-family: Rowdies;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 96px;
+  line-height: 119px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  /* Redberry Red */
+
+  color: #fe3b1f;
+}

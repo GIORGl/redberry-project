@@ -1,0 +1,53 @@
+.submit {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+
+  /* Primary BG */
+
+  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btns button {
+  width: 395px;
+  height: 79px;
+
+  background: #fe3b1f;
+  border-radius: 50px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 44px;
+  border: none;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.btns_link {
+  width: 190px;
+  height: 50px;
+
+  margin-top: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 34px;
+
+  text-align: center;
+  text-decoration-line: underline;
+
+  color: #ffffff;
+}
