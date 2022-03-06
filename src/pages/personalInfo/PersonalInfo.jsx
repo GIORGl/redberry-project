@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import Pagination from "../../components/Pagination";
 import "./PersonalInfo.css";
-
+import { context } from "../../Context";
 function PersonalInfo() {
   return (
     <div className="personal_info">
@@ -22,7 +22,9 @@ function PersonalInfo() {
           />
         </div>
 
-       <Pagination />
+        <Pagination
+          url={window.location.href.replace("http://localhost:3000", "")}
+        />
       </div>
       <div className="personal_info_right">
         <h1 className="redberry_origins">Redberry Origins</h1>

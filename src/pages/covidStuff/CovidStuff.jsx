@@ -78,7 +78,8 @@ function CovidStuff() {
           <input type="date" name="" id="" />
         </div>
 
-        <Pagination />
+
+        <Pagination url={window.location.href.replace("http://localhost:3000","")} />
       </div>
       <div className="covidStuff_right">
         <h1 className="covid_h1">Redberry Covid Policies</h1>

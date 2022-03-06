@@ -18,6 +18,8 @@ function Technicalskills() {
     getSkills();
   }, []);
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!skillArr.some((e) => e.skill === selectValue)) {
@@ -83,7 +85,7 @@ function Technicalskills() {
           ))}
         </div>
 
-        <Pagination />
+        <Pagination url={window.location.href.replace("http://localhost:3000","")} />
       </div>
 
       <div className="technicalskills_right">

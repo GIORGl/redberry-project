@@ -42,7 +42,7 @@ function Insights() {
           cols="30"
           rows="10"
         ></textarea>
-        <Pagination />
+        <Pagination url={window.location.href.replace("http://localhost:3000","")} />
       </div>
       <div className="insghts_right">
         <h1>Redberrian Insights</h1>
