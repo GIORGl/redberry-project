@@ -74,7 +74,7 @@ function CovidStuff() {
               type="radio"
               id="office"
               name="work_preerence"
-              value="from_sairme_office"
+              value="from_office"
             />
             <label for="office">From office</label>
             <input
@@ -167,19 +167,15 @@ function CovidStuff() {
         )}
 
         <div className="pagination">
-          {/* <Link to={prevPage(url)}> */}
-          <Link
-            onClick={(e) => {
+         
+         
+            <button onClick={(e) => {
               e.preventDefault();
               setActive(active - 1);
-            }}
-            to={prevPage(
-              window.location.href.replace("http://localhost:3000", "")
-            )}
-          >
-            <button className="previous">^</button>
-          </Link>
-          {/* </Link> */}
+              navigate("/technical-skills")
+            }} className="previous">^</button>
+         
+          
           <div className="balls">
             <div id={1} className={`ball ${active == 1 && "active"}`}></div>
             <div id={2} className={`ball ${active == 2 && "active"}`}></div>

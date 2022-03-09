@@ -16,11 +16,11 @@ function Application({ application }) {
   }, []);
 
   const getTitle = (id) => {
-    skills.forEach((el) => {
-      if (el.id == id) {
-        return el.title
-      }
-    });
+    const someskill = skills.find((el) => el.id == id);
+    if (someskill) {
+      return someskill.title;
+    }
+    return "no skill";
   };
 
   return (
@@ -151,8 +151,7 @@ function Application({ application }) {
           {application.skills.map((skill) => (
             <div>
               <div className="app_item">
-            
-                <p>{skill.id}</p>
+                <p>{getTitle(skill.id)}</p>
                 <p>Years of Experience:{skill.experience}</p>
               </div>
             </div>

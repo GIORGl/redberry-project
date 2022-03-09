@@ -32,17 +32,18 @@ function Submit() {
 
       let newArr = skillArr.map((skill) => {
         return {
-          id: skills.filter((el) => el.title == skill.skill)[0].id,
+          id: skills.filter((el) => el.title == skill.skill)[0]?.id,
           experience: parseInt(skill.experience),
         };
       });
 
+      console.log("newArr", newArr);
+
       setArr(newArr);
-     
     };
 
     getSkills();
-  }, []);
+  }, [skillArr]);
 
   function getFormattedDate(date) {
     var year = date.getFullYear();
@@ -82,10 +83,11 @@ function Submit() {
   }
 
   const handleSubmit = async () => {
+    console.log("skillarr", skillArr);
     console.log("arr", arr);
     let isPhone = () => {
       if (phone) {
-        return { phone: phone };
+        return phone;
       } else {
         return null;
       }
@@ -98,28 +100,33 @@ function Submit() {
         return null;
       }
     };
+    console.log("arrr", arr);
+    let postData = {
+      token: "c39ba41a-16da-4e94-8d0d-a1db9d64eb40",
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      skills: arr,
+     
 
-    let postData =
- 
-      {
-        token: "c39ba41a-16da-4e94-8d0d-a1db9d64eb40",
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
+      work_preference: workPreferance,
+      had_covid: turnBool(hadCovid),
+      had_covid_at: covidDate,
+      vaccinated: turnBool(hadVaccine),
+      vaccinated_at: vaccineDate,
+      will_organize_devtalk: turnBool(devTalk),
 
-        isPhone,
+      something_special: special,
 
-        skills: arr,
+    };
 
-        work_preference: workPreferance,
-        had_covid: turnBool(hadCovid),
-        had_covid_at: covidDate,
-        vaccinated: turnBool(hadVaccine),
-        vaccinated_at: vaccineDate,
-        will_organize_devtalk: turnBool(devTalk),
-        isDevTopic,
-        something_special: special,
-      };
+    if (phone) {
+      postData = { ...postData, phone };
+    }
+
+    if (devTopic) {
+      postData = { ...postData, devtalk_topic: devTopic };
+    }
 
     let axiosConfig = {
       headers: {
@@ -127,7 +134,8 @@ function Submit() {
         "Access-Control-Allow-Origin": "*",
       },
     };
-
+    console.log("skillarr", skillArr);
+    console.log(postData);
     axios
       .post(
         "https://bootcamp-2022.devtest.ge/api/application",
@@ -140,7 +148,6 @@ function Submit() {
       .catch((err) => {
         console.error(err);
       });
-
   };
   return (
     <div className="submit">
@@ -157,3 +164,4 @@ function Submit() {
 }
 
 export default Submit;
+

@@ -61,7 +61,7 @@ function Technicalskills() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!skillArr.some((e) => e.skill === selectValue)) {
-      setSkillArr([...skillArr, { skill: selectValue, experience: inputValue }]);
+      setSkillArr(prev =>  [...prev,{ skill: selectValue, experience: inputValue }]);
     }
 
     setSelectValue(null)
