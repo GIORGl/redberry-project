@@ -22,7 +22,7 @@ function CovidStuff() {
   const [isSubmit, setIsSubmit] = useState(false);
 
   if (
-    window.location.href.replace("http://localhost:3000", "") == "/personalInfo"
+    window.location.href.endsWith("/personalInfo")
   ) {
     setActive(1);
   }

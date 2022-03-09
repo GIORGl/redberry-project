@@ -101,16 +101,12 @@ function Insights() {
         <p className="special">{formErrors.special}</p>
         <div className="pagination">
           {/* <Link to={prevPage(url)}> */}
-          <Link
-            onClick={() => {
+         
+            <button onClick={() => {
               setActive(active - 1);
-            }}
-            to={prevPage(
-              window.location.href.replace("http://localhost:3000", "")
-            )}
-          >
-            <button className="previous">^</button>
-          </Link>
+              navigate("/technical-skills")
+            } } className="previous">^</button>
+         
           {/* </Link> */}
           <div className="balls">
             <div id={1} className={`ball ${active == 1 && "active"}`}></div>

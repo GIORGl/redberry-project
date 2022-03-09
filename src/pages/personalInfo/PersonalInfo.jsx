@@ -15,7 +15,7 @@ function PersonalInfo(props) {
   let navigate = useNavigate();
 
   if (
-    window.location.href.replace("http://localhost:3000", "") == "/personalInfo"
+    window.location.href.endsWith("/personalInfo")
   ) {
     setActive(1);
   }
@@ -111,9 +111,7 @@ function PersonalInfo(props) {
               onClick={() => {
                 setActive(active - 1);
               }}
-              to={prevPage(
-                window.location.href.replace("http://localhost:3000", "")
-              )}
+              to={"/"}
             >
               <button className="previous">^</button>
             </Link>
