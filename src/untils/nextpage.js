@@ -9,11 +9,15 @@ const urls = [
 ];
 
 export const nextPage = (url) => {
-//   console.log(urls.indexOf("/personalInfo"));
+  //   console.log(urls.indexOf("/personalInfo"));
+
+
+  console.log("url next", url);
+
+
+    return urls[urls.indexOf(url) + 1]
 
 
 
-  console.log('url next', url)
 
-  return urls[urls.indexOf(url) +1]
 };

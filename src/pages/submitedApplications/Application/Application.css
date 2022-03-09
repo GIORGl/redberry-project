@@ -1,0 +1,36 @@
+.application {
+  position: absolute;
+  z-index: 1;
+  width: 1154px;
+  height: 1000px;
+
+  /* top: 300px; */
+
+  background: #ffffff;
+  /* Redberry Red */
+
+  border: 1px solid #fe3b1f;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.dropDown {
+  width: 1154px;
+  height: 52px;
+
+  /* Redberry Red */
+
+  background: #fe3b1f;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+.div {
+  width: 271px;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+}

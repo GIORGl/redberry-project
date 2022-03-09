@@ -5,8 +5,13 @@ import { nextPage } from "../untils/nextpage";
 import { prevPage } from "../untils/prevPage";
 import "./Pagination.css";
 
-function Pagination({ url }) {
-  const [active, setActive] = useContext(context);
+function Pagination({ url, validate, history }) {
+  const [firstName, setFirstName] = useContext(context).firstName;
+
+  const [lastName, setLastName] = useContext(context).lastName;
+  const [email, setEmail] = useContext(context).email;
+  const [phoneNum, setPhoneNum] = useContext(context).phone;
+  const [active, setActive] = useContext(context).active;
 
   if (
     window.location.href.replace("http://localhost:3000", "") == "/personalInfo"
@@ -25,7 +30,6 @@ function Pagination({ url }) {
       >
         <button className="previous">^</button>
       </Link>
-
       {/* </Link> */}
       <div className="balls">
         <div id={1} className={`ball ${active == 1 && "active"}`}></div>
@@ -35,13 +39,20 @@ function Pagination({ url }) {
         <div id={5} className={`ball ${active == 5 && "active"}`}></div>
       </div>
       <Link
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
+          // validate(firstName, lastName, email, phoneNum);
+          // setFormErrors(validate(firstName, lastName, email, phoneNum));
+          // console.log("len", Object.keys(formErrors).length);
+          // console.log(formErrors)
           setActive(active + 1);
+          // console.log(url)
         }}
-        to={nextPage(url)}
+        to={nextPage(window.location.href.replace("http://localhost:3000", ""))}
       >
         <button className="next">^</button>
       </Link>
+      )
     </div>
   );
 }

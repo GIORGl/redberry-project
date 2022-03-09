@@ -56,6 +56,13 @@
 
   /* Primary Stroke */
 }
+
+.duplicateErr {
+  position: absolute;
+
+  top: 520px;
+  color: red;
+}
 .display {
   position: absolute;
   top: 600px;
@@ -144,5 +151,3 @@
 
   color: #ffffff;
 }
-
-

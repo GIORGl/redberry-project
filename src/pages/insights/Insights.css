@@ -74,6 +74,13 @@
   box-sizing: border-box;
 }
 
+.devTopic_err {
+  color: red;
+  position: absolute;
+  left: 153px;
+  top: 600px;
+}
+
 .special_p {
   position: absolute;
   width: 645px;
@@ -104,6 +111,14 @@
 
   border: 1px solid #525557;
   box-sizing: border-box;
+}
+
+
+.special {
+  position: absolute;
+  left: 153px;
+  top: 780px;
+color: red;
 }
 
 .devtalk_if p {

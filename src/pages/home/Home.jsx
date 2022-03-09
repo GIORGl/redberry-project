@@ -14,7 +14,7 @@ function Home() {
             <p>Start questioniere</p>
           </button>
         </Link>
-        <Link className="submitedAplications" to="/lol">
+        <Link to="/submitedApplications" className="submitedAplications" >
           Submited Applications
         </Link>
         

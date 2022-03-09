@@ -1,8 +1,52 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Pagination from "../../components/Pagination";
+import { context } from "../../Context";
+import { prevPage } from "../../untils/prevPage";
 import "./Insights.css";
 
 function Insights() {
+  let navigate = useNavigate();
+  const [devTalk, setDevTalk] = useContext(context).devTalk;
+  const [devTopic, setDevTopic] = useContext(context).devTopic;
+  const [special, setSpecial] = useContext(context).special;
+
+  const [active, setActive] = useContext(context).active;
+
+  const [formErrors, setFormErrors] = useState({});
+
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  if (
+    window.location.href.replace("http://localhost:3000", "") == "/personalInfo"
+  ) {
+    setActive(1);
+  }
+
+  const validate = () => {
+    let errors = {};
+    if (!devTalk) {
+      errors.devTalk = "required!";
+    }
+    if (devTalk == 'true' && !devTopic) {
+      errors.devTopic = "required!";
+    }
+
+    if (!special) {
+      errors.special = "required!";
+    }
+
+    return errors;
+  };
+
+  useEffect(() => {
+    if (isSubmit && Object.keys(formErrors).length == 0) {
+      navigate("/submit");
+      setActive((prev) => prev + 1);
+    }
+
+    setIsSubmit(false);
+  }, [formErrors, isSubmit]);
   return (
     <div className="insights">
       <div className="insights_left">
@@ -11,39 +55,84 @@ function Insights() {
         <div className="devtalk_if">
           <p>Would you attend Devtalks and maybe also organize your own?</p>
 
-          <form>
+          <form value={devTalk} onChange={(e) => setDevTalk(e.target.value)}>
             <div className="">
-              <input name="dev" id="dev_yes" value={"Yes"} type="radio" />
+              <input name="dev" id="dev_yes" value={true} type="radio" />
               <label htmlFor="dev_yes">Yes</label>
             </div>
             <div className="">
-              <input name="dev" value="No" id="dev_no" type="radio" />
+              <input name="dev" value="false" id="dev_no" type="radio" />
               <label htmlFor="dev_no">No</label>
             </div>
+
+            <p>{formErrors.devTalk}</p>
           </form>
         </div>
 
-        <p className="devtalk_p">What would you speak about at Devtalk?</p>
+        {devTalk == "true" && (
+          <div>
+            <p className="devtalk_p">What would you speak about at Devtalk?</p>
 
-        <textarea
-          className="devtalk_text"
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-        ></textarea>
+            <textarea
+              value={devTopic}
+              onChange={(e) => setDevTopic(e.target.value)}
+              className="devtalk_text"
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+        )}
+        <p className="devTopic_err">{formErrors.devTopic}</p>
+        <div>
+          <p className="special_p">Tell us something special</p>
 
-        <p className="special_p">Tell us something special</p>
-
-        <textarea
-          className="special_text"
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-        ></textarea>
-        <Pagination url={window.location.href.replace("http://localhost:3000","")} />
+          <textarea
+            value={special}
+            onChange={(e) => setSpecial(e.target.value)}
+            className="special_text"
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <p className="special">{formErrors.special}</p>
+        <div className="pagination">
+          {/* <Link to={prevPage(url)}> */}
+          <Link
+            onClick={() => {
+              setActive(active - 1);
+            }}
+            to={prevPage(
+              window.location.href.replace("http://localhost:3000", "")
+            )}
+          >
+            <button className="previous">^</button>
+          </Link>
+          {/* </Link> */}
+          <div className="balls">
+            <div id={1} className={`ball ${active == 1 && "active"}`}></div>
+            <div id={2} className={`ball ${active == 2 && "active"}`}></div>
+            <div id={3} className={`ball ${active == 3 && "active"}`}></div>
+            <div id={4} className={`ball ${active == 4 && "active"}`}></div>
+            <div id={5} className={`ball ${active == 5 && "active"}`}></div>
+          </div>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setFormErrors(validate());
+              setIsSubmit(true);
+            }}
+            className="next"
+          >
+            ^
+          </button>
+          )
+        </div>
       </div>
+
       <div className="insghts_right">
         <h1>Redberrian Insights</h1>
 
