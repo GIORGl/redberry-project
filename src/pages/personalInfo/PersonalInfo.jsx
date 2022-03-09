@@ -23,7 +23,7 @@ function PersonalInfo(props) {
   useEffect(() => {
     if (isSubmit && Object.keys(formErrors).length == 0) {
       console.log("dasdasdasdasd");
-      navigate("/technical-skills");
+      navigate("/technicalskills");
       setActive(prev => prev +1)
     }
 
@@ -107,14 +107,12 @@ function PersonalInfo(props) {
           </div>
 
           <div className="pagination">
-            <Link
-              onClick={() => {
+          
+              <button onClick={() => {
                 setActive(active - 1);
-              }}
-              to={"/"}
-            >
-              <button className="previous">^</button>
-            </Link>
+                navigate('/')
+              }} className="previous">^</button>
+         
 
             {/* </Link> */}
             <div className="balls">

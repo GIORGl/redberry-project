@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { context } from "../../Context";
 import "./Submit.css";
 function Submit() {
@@ -22,7 +22,7 @@ function Submit() {
   const [special, setSpecial] = useContext(context).special;
   const [skills, setSkills] = useState([]);
   const [arr, setArr] = useState([]);
-
+  let navigate = useNavigate();
   useEffect(() => {
     const getSkills = async () => {
       let response = await fetch("https://bootcamp-2022.devtest.ge/api/skills");
@@ -32,7 +32,9 @@ function Submit() {
 
       let newArr = skillArr.map((skill) => {
         return {
-          id: skills.filter((el) => el.title == skill.skill)[0]?.id,
+          id: skills.filter((el) => el.title == skill.skill)[0]
+            ? 1
+            : skills.filter((el) => el.title == skill.skill)[0].id,
           experience: parseInt(skill.experience),
         };
       });
@@ -107,7 +109,6 @@ function Submit() {
       last_name: lastName,
       email: email,
       skills: arr,
-     
 
       work_preference: workPreferance,
       had_covid: turnBool(hadCovid),
@@ -117,7 +118,6 @@ function Submit() {
       will_organize_devtalk: turnBool(devTalk),
 
       something_special: special,
-
     };
 
     if (phone) {
@@ -144,6 +144,7 @@ function Submit() {
       )
       .then((res) => {
         console.log(res);
+        navigate("/thanks");
       })
       .catch((err) => {
         console.error(err);
@@ -164,4 +165,3 @@ function Submit() {
 }
 
 export default Submit;
-

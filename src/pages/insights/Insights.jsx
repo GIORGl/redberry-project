@@ -104,7 +104,7 @@ function Insights() {
          
             <button onClick={() => {
               setActive(active - 1);
-              navigate("/technical-skills")
+              navigate("/covidStuff")
             } } className="previous">^</button>
          
           {/* </Link> */}

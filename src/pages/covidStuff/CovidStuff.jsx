@@ -172,7 +172,7 @@ function CovidStuff() {
             <button onClick={(e) => {
               e.preventDefault();
               setActive(active - 1);
-              navigate("/technical-skills")
+              navigate("/technicalskills")
             }} className="previous">^</button>
          
           

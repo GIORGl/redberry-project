@@ -36,14 +36,12 @@ function Technicalskills() {
 
   useEffect(() => {
     if (isSubmit && Object.keys(formErrors).length == 0) {
-      
       navigate("/covidStuff");
-      setActive(prev => prev +1)
-      
+      setActive((prev) => prev + 1);
     }
 
     setIsSubmit(false);
-  }, [formErrors, isSubmit,skillArr]);
+  }, [formErrors, isSubmit, skillArr]);
 
   const validate = () => {
     const errors = {};
@@ -61,12 +59,13 @@ function Technicalskills() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!skillArr.some((e) => e.skill === selectValue)) {
-      setSkillArr(prev =>  [...prev,{ skill: selectValue, experience: inputValue }]);
+      setSkillArr((prev) => [
+        ...prev,
+        { skill: selectValue, experience: inputValue },
+      ]);
     }
 
-    setSelectValue(null)
-
-    
+    setSelectValue(null);
   };
 
   const handleClick = (obj) => {
@@ -131,16 +130,17 @@ function Technicalskills() {
 
         <div className="pagination">
           {/* <Link to={prevPage(url)}> */}
-          <Link
+
+          <button
             onClick={() => {
               setActive(active - 1);
+              navigate("/prsonalInfo");
             }}
-            to={prevPage(
-              window.location.href.replace("http://localhost:3000", "")
-            )}
+            className="previous"
           >
-            <button className="previous">^</button>
-          </Link>
+            ^
+          </button>
+
           {/* </Link> */}
           <div className="balls">
             <div id={1} className={`ball ${active == 1 && "active"}`}></div>
@@ -154,13 +154,11 @@ function Technicalskills() {
               e.preventDefault();
               setFormErrors(validate());
               setIsSubmit(true);
-             
             }}
             className="next"
           >
             ^
           </button>
-          )
         </div>
       </div>
 
