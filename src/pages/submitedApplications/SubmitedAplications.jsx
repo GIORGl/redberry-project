@@ -7,6 +7,8 @@ function SubmitedAplications() {
   const [dropDown, setDropDown] = useState("");
   const [application, setApplication] = useState({});
   const [toggle, setToggle] = useState(false);
+  
+
   useEffect(() => {
     const getApplications = async () => {
       let response = await fetch(
@@ -14,11 +16,11 @@ function SubmitedAplications() {
       );
       let data = await response.json();
 
-      setApplications(data.map(el => {
-        
-         return {...el, id:uuidv4()}
-        
-      }));
+      setApplications(
+        data.map((el) => {
+          return { ...el, id: uuidv4() };
+        })
+      );
 
       // setApplications(applications.map(app => {
       //   return {...app,id: uuidv4()}
@@ -28,10 +30,16 @@ function SubmitedAplications() {
 
     getApplications();
   }, []);
+
+  
+  
+
+ 
+
   return (
     <div className="submitedApplications">
       <h1 className="submitedApplications_h1">Submitted Applications</h1>
-      <div>
+      <div className="all_the_apps">
         {applications.map((application) => (
           <div className="apps">
             <div
@@ -39,6 +47,8 @@ function SubmitedAplications() {
                 setToggle((prev) => !prev);
                 setApplication(application);
                 setDropDown(application.id);
+
+              
 
                 console.log(application);
               }}

@@ -12,6 +12,8 @@
   border: 1px solid #fe3b1f;
   box-sizing: border-box;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .dropDown {
@@ -26,11 +28,86 @@
 .info {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
 }
 .div {
   width: 271px;
   height: 54px;
   display: flex;
   justify-content: space-between;
+}
+
+.application_left {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+}
+
+.covid_res {
+  position: absolute;
+  width: 349px;
+  height: 54px;
+  left: 493px;
+  top: 1343px;
+
+  background: #fffcfc;
+  /* Primary Stroke */
+
+  border: 1px solid #525557;
+  box-sizing: border-box;
+}
+
+.covid_situation form {
+  display: flex;
+  flex-direction: column;
+}
+
+.covid_situation form div {
+  display: flex;
+  align-items: center;
+}
+
+.application_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.textarea_1 {
+  width: 447px;
+  height: 122px;
+
+  background: #ffffff;
+  /* Primary Stroke */
+
+  border: 1px solid #525557;
+  box-sizing: border-box;
+}
+
+.textarea_2 {
+  width: 447px;
+  height: 89px;
+
+  background: #ffffff;
+  /* Primary Stroke */
+
+  border: 1px solid #525557;
+  box-sizing: border-box;
+}
+
+.app_item {
+  /* position: absolute; */
+  width: 247px;
+  height: 48px;
+
+  background: #ffffff;
+  /* Primary Stroke */
+
+  /* border: 1px solid #525557; */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
 }

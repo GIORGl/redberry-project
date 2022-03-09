@@ -21,8 +21,7 @@ function Submit() {
   const [devTopic, setDevTopic] = useContext(context).devTopic;
   const [special, setSpecial] = useContext(context).special;
   const [skills, setSkills] = useState([]);
-  const [arr,setArr] = useState([])
-
+  const [arr, setArr] = useState([]);
 
   useEffect(() => {
     const getSkills = async () => {
@@ -31,25 +30,18 @@ function Submit() {
       console.log(data);
       setSkills(data);
 
-    //  setArr(skillArr.map((skill) => {
-    //   return {
-    //     id: skills.filter((el) => el.title == skill.skill)[0][id],
-    //     experience: parseInt(skill.experience),
-    //   };
-    // }))
-    };
-
-    getSkills();
-    console.log();
-
-    console.log(
-      skillArr.map((skill) => {
+      let newArr = skillArr.map((skill) => {
         return {
           id: skills.filter((el) => el.title == skill.skill)[0].id,
           experience: parseInt(skill.experience),
         };
-      })
-    );
+      });
+
+      setArr(newArr);
+     
+    };
+
+    getSkills();
   }, []);
 
   function getFormattedDate(date) {
@@ -88,24 +80,9 @@ function Submit() {
   if (!devTopic) {
     setDevTopic("");
   }
-  useEffect(() => {
-    console.log(
-      firstName,
-      lastName,
-      email,
-      phone,
-      skillArr,
-      "work pre",
-      workPreferance,
-      turnBool(hadCovid),
-      turnBool(hadVaccine),
-      covidDate,
-      vaccineDate,
-      turnBool(devTalk),
-      devTopic
-    );
-  });
+
   const handleSubmit = async () => {
+    console.log("arr", arr);
     let isPhone = () => {
       if (phone) {
         return { phone: phone };
@@ -123,27 +100,7 @@ function Submit() {
     };
 
     let postData =
-      // {
-      //     "token": "c39ba41a-16da-4e94-8d0d-a1db9d64eb40",
-      //     "first_name": firstName,
-      //     "last_name:" :lastName,
-      //     "email": email,
-      //     "phone": "+995591933382",
-      //     "skills": [
-      //           {
-      //             "id": 1,
-      //             "experience": 3
-      //           }
-      //         ],
-      //     "work_preference": turnBool(workPreferance),
-      //     "had_covid": turnBool(hadCovid),
-      //     "had_covid_at": covidDate,
-      //     "vaccinated": turnBool(hadVaccine),
-      //     "vaccinated_at": vaccineDate,
-      //     "will_organize_devtalk": turnBool(devTalk),
-      //     "devtalk_topic": devTopic,
-      //      "something_special": special,
-      //   }
+ 
       {
         token: "c39ba41a-16da-4e94-8d0d-a1db9d64eb40",
         first_name: firstName,
@@ -152,9 +109,7 @@ function Submit() {
 
         isPhone,
 
-        skills: [
-          {id:1,experience:1}
-        ],
+        skills: arr,
 
         work_preference: workPreferance,
         had_covid: turnBool(hadCovid),
@@ -186,39 +141,6 @@ function Submit() {
         console.error(err);
       });
 
-    // const requestOptions = {
-
-    //   method: "POST",
-
-    //   headers: {
-    //     'Content-Type': 'application/json',
-
-    //   },
-
-    //   body: JSON.stringify({
-    //     token: "c39ba41a-16da-4e94-8d0d-a1db9d64eb40",
-    //     first_name: firstName,
-    //     last_name: lastName,
-    //     email: email,
-    //     phone: phone,
-    //     skills: skillArr,
-    //     work_preference: turnBool(workPreferance),
-    //     had_covid: turnBool(hadCovid),
-    //     had_covid_at: covidDate,
-    //     vaccinated: turnBool(hadVaccine),
-    //     vaccinated_at: vaccineDate,
-    //     will_organize_devtalk: turnBool(devTalk),
-    //     devtalk_topic: devTopic,
-    //     something_special: special,
-    //   }),
-    // };
-    // const response = await fetch(
-    //   "https://cors-anywhere.herokuapp.com/https://bootcamp-2022.devtest.ge/api/application",
-    //   requestOptions
-    // );
-    // const data = await response;
-    // console.log(response)
-    // console.log(data);
   };
   return (
     <div className="submit">

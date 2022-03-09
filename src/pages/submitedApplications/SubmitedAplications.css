@@ -45,6 +45,23 @@
   position: relative;
   width: 1154px;
   height: 188px;
-   /* left: 343px; */
-  top: 249px; 
+  /* left: 343px; */
+  top: 249px;
+  
 }
+
+.all_the_apps {
+  
+  overflow-y: scroll;
+  height: 1000px;
+  
+  margin-top: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: first baseline;
+}
+
+/* .all_the_apps::-webkit-scrollbar {
+  display: none;
+} */
