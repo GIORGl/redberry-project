@@ -32,9 +32,7 @@ function Submit() {
 
       let newArr = skillArr.map((skill) => {
         return {
-          id: skills.filter((el) => el.title == skill.skill)[0]
-            ? 1
-            : skills.filter((el) => el.title == skill.skill)[0].id,
+          id: parseInt(skill.id),
           experience: parseInt(skill.experience),
         };
       });

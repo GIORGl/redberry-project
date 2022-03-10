@@ -56,23 +56,31 @@ function Technicalskills() {
     return errors;
   };
 
+  const getTitle = (id) => {
+    const someskill = skills.find((el) => el.id == id);
+    if (someskill) {
+      return someskill.title;
+    }
+    return "no skill";
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!skillArr.some((e) => e.skill === selectValue)) {
+    if (!skillArr.some((e) => e.id === selectValue)) {
       setSkillArr((prev) => [
         ...prev,
-        { skill: selectValue, experience: inputValue },
+        { id: selectValue, experience: inputValue },
       ]);
     }
 
-    setSelectValue(null);
+   
   };
 
   const handleClick = (obj) => {
     console.log("clicked");
     console.log(obj);
 
-    setSkillArr(skillArr.filter((element) => element.skill != obj.skill));
+    setSkillArr(skillArr.filter((element) => element.id != obj.id));
   };
   return (
     <div className="techinicalskills">
@@ -91,7 +99,7 @@ function Technicalskills() {
             </option>
 
             {skills.map((skill) => (
-              <option value={skill.title} id={skill.id}>
+              <option value={skill.id} id={skill.id}>
                 {skill.title}
               </option>
             ))}
@@ -111,7 +119,7 @@ function Technicalskills() {
         <div className="display">
           {skillArr.map((el) => (
             <div className="item">
-              <p>{el.skill}</p>
+              <p>{getTitle(el.id)}</p>
               <p>Years of Experience:{el.experience}</p>
               <button
                 type="button"
